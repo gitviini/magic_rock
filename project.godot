@@ -1,0 +1,41 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="magic_rock"
+run/main_scene="uid://3ipv0ong40ba"
+config/features=PackedStringArray("4.5")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://src/Global.gd"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1280
+window/stretch/mode="viewport"
+window/handheld/orientation=1
+
+[gui]
+
+theme/custom_font="uid://c3dr4i7dkf4ae"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

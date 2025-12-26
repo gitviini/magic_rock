@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://3ipv0ong40ba"]
+
+[ext_resource type="Script" uid="uid://wioesug3hopv" path="res://src/menu/menu.gd" id="1_45w1x"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_45w1x")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.078431375)
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41458333
+anchor_top = 0.45
+anchor_right = 0.5854167
+anchor_bottom = 0.55
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "COMEÇAR"
+flat = true
+
+[node name="close" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"normal"
+text = "SAIR"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/close" to="." method="_on_close_pressed"]
