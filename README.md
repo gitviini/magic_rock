@@ -5,7 +5,7 @@
 ![image_example](example.png)
 
 </div>
-versão web : [https://gitviini.github.io/magic_rock/](https://gitviini.github.io/magic_rock/)
+versão web : https://gitviini.github.io/magic_rock/
 
 Jogo simples, feito na godot engine.
 <br/>
