@@ -1,0 +1,34 @@
+name: CI – Serve Godot Web Build
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  serve:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Verificar diretório build/web
+        run: ls -la build/web
+
+      - name: Rodar live-server no build/web
+        working-directory: build/web
+        run: |
+          npx live-server . \
+            --no-browser \
+            --port=8080 &
+          
+          # Aguarda alguns segundos para garantir que o servidor subiu
+          sleep 5
