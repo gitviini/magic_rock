@@ -21,8 +21,9 @@ Global="*res://src/Global.gd"
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=1280
+window/size/viewport_width=200
+window/size/viewport_height=400
+window/size/mode=3
 window/stretch/mode="viewport"
 window/handheld/orientation=1
 

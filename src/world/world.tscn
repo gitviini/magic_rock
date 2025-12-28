@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bdlki7letg6dw"]
+[gd_scene load_steps=10 format=4 uid="uid://bdlki7letg6dw"]
 
 [ext_resource type="PackedScene" uid="uid://c8gu7abocfj0q" path="res://src/magic/magic.tscn" id="1_1k4gi"]
 [ext_resource type="Script" uid="uid://b1gqomwb7p7pj" path="res://src/world/world.gd" id="1_bsf3i"]
 [ext_resource type="Texture2D" uid="uid://bnrq5ekdtfcej" path="res://src/tilemap/tilemap.png" id="2_6fy3g"]
+[ext_resource type="PackedScene" uid="uid://dfaapbj2uevlv" path="res://src/pause_menu/pause_menu.tscn" id="5_43c6p"]
+[ext_resource type="Texture2D" uid="uid://d5neqsobq3be" path="res://src/pause_menu/pause.png" id="6_5kmgb"]
 [ext_resource type="PackedScene" uid="uid://bol14kuftmmts" path="res://src/hud/hud.tscn" id="6_l0av5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jte2u"]
@@ -17,6 +19,9 @@ texture_region_size = Vector2i(12, 12)
 tile_size = Vector2i(12, 12)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jte2u")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0av5"]
+size = Vector2(12, 12)
 
 [node name="world" type="Node2D"]
 script = ExtResource("1_bsf3i")
@@ -43,4 +48,32 @@ autostart = true
 
 [node name="HUD" parent="." instance=ExtResource("6_l0av5")]
 
+[node name="PauseMenu" parent="." instance=ExtResource("5_43c6p")]
+process_mode = 3
+layer = 2
+visible = false
+
+[node name="PauseButton" type="CanvasLayer" parent="."]
+layer = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="PauseButton"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 60.0
+offset_top = 120.0
+offset_right = 60.0
+offset_bottom = 120.0
+metadata/_edit_use_anchors_ = true
+
+[node name="pause" type="TouchScreenButton" parent="PauseButton/Control"]
+z_index = 99
+scale = Vector2(7, 7)
+texture_normal = ExtResource("6_5kmgb")
+shape = SubResource("RectangleShape2D_l0av5")
+passby_press = true
+action = "ui_cancel"
+
 [connection signal="timeout" from="TimerNewRock" to="." method="_on_timer_new_rock_timeout"]
+
+[editable path="PauseMenu"]

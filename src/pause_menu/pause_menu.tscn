@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfaapbj2uevlv"]
+
+[ext_resource type="Script" uid="uid://clbue511y7sso" path="res://src/pause_menu/pause_menu.gd" id="1_5ceae"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_5ceae"]
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_43r2n"]
+events = [SubResource("InputEventKey_5ceae")]
+
+[node name="PauseMenu" type="CanvasLayer"]
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5ceae")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.078431375)
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41458333
+anchor_top = 0.45
+anchor_right = 0.5854167
+anchor_bottom = 0.55
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="continue" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+shortcut = SubResource("Shortcut_43r2n")
+text = "COMEÇAR"
+flat = true
+
+[node name="close" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"normal"
+text = "SAIR"
+flat = true
+
+[connection signal="pressed" from="PauseMenu/VBoxContainer/continue" to="PauseMenu" method="_on_continue_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/close" to="PauseMenu" method="_on_close_pressed"]

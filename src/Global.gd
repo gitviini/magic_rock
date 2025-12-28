@@ -4,6 +4,7 @@ var run = true
 var score = 0
 
 signal change_stats()
+signal change_pause_game()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

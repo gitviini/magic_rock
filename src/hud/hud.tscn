@@ -10,13 +10,13 @@ shadow_color = Color(1, 1, 1, 1)
 shadow_offset = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0re6"]
-size = Vector2(240, 1280)
+size = Vector2(240, 880)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3phq6"]
-size = Vector2(240, 1280)
+size = Vector2(240, 880)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ony6l"]
-size = Vector2(240, 1280)
+size = Vector2(240, 880)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_t0re6")
@@ -38,8 +38,11 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+offset_top = 300.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 0
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
